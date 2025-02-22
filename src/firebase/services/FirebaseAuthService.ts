@@ -38,7 +38,17 @@ export class FirebaseAuthService implements IAuthService {
     getCurrentUser(): any | null {
         return auth.currentUser;
     }
-               
+
+    async getUserRole(user: any): Promise<Role> {
+        // Para el usuario por defecto, se devuelve siempre el rol ADMIN.
+        if (user.email === 'jrodriguez@acme.com') {
+            return Role.ADMIN;
+        }
+        
+        // Delegamos la obtención de roles al servicio de base de datos.
+        return this.databaseService.getUserRole(user.uid);
+      }
+
     async getUserRoles(user: any): Promise<Role[]> {
         // Para el usuario por defecto, se devuelve siempre el rol ADMIN.
         if (user.email === 'jrodriguez@acme.com') {

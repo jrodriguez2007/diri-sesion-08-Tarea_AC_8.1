@@ -22,7 +22,7 @@ IFirebaseDataBaseService {
         return Role.USER;
       }
 
-    /*
+    
     async getUserRoles(uid: string): Promise<Role[]> {
         const db = getDatabase(app);
         const rolesRef = ref(db, `users/${uid}/roles`);
@@ -43,7 +43,7 @@ IFirebaseDataBaseService {
         }
         return [Role.USER];
     }
-        */
+        
 
     async createUserRoles(uid: string, data: { email: string; role: Role }): Promise<void> {
         const db = getDatabase(app);

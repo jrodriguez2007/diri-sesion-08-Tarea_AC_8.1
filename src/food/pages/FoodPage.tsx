@@ -87,48 +87,52 @@ return (
       </Row>
     )}
 
-    {(rol === 'ADMIN' && !isChooseFoodPage) ? (
-      <>
-        <Row className="mb-3">
-          <Col>
-            <h4 className="text-light">Menús</h4>
-          </Col>
-        </Row>
-
-        {loading && (
-          <Row className="justify-content-center mb-4">
-            <Col xs="auto">
-              <Alert variant="info" className="text-center">
+    {loading && (
+      <Row className="justify-content-center mb-4">
+                <Col xs="auto">
+                <Alert variant="info" className="text-center">
                 <Spinner
-                  animation="border"
-                  role="status"
-                  size="sm"
-                  className="me-2"
+                animation="border"
+                role="status"
+                size="sm"
+                className="me-2"
                 >
-                  <span className="visually-hidden">Cargando...</span>
+                <span className="visually-hidden">Cargando...</span>
                 </Spinner>
                 Cargando el menú, por favor espere...
-              </Alert>
+                </Alert>
+                </Col>
+      </Row>
+    )}
+
+    {!loading && (
+      (rol === 'ADMIN' && !isChooseFoodPage) ? (
+        <>
+          <Row className="mb-3">
+            <Col>
+              <h4 className="text-light">Menús</h4>
             </Col>
           </Row>
-        )}
 
-        <Row>
-          <Col>
-            <FoodListComponent menuItems={menu} />
-          </Col>
-        </Row>
-      </>
-    ) : selectedItem ? (
-      <ErrorBoundary fallback={<div className="text-danger">¡Algo salió mal!</div>}>
-        <FoodOrderComponent item={selectedItem} onOrderSubmit={handleOrderSubmit} />
-      </ErrorBoundary>
-    ) : (
-      <FoodsComponent
-        foodItems={menu}
-        onSelectItem={(item) => setSelectedItem(item)}
-      />
+          
+          <Row>
+            <Col>
+              <FoodListComponent menuItems={menu} />
+            </Col>
+          </Row>
+        </>
+      ) : selectedItem ? (
+        <ErrorBoundary fallback={<div className="text-danger">¡Algo salió mal!</div>}>
+          <FoodOrderComponent item={selectedItem} onOrderSubmit={handleOrderSubmit} />
+        </ErrorBoundary>
+      ) : (
+        <FoodsComponent
+          foodItems={menu}
+          onSelectItem={(item) => setSelectedItem(item)}
+        />
+      )
     )}
+
   </Container>
   );
   
