@@ -24,9 +24,9 @@ export const AppRouter = () => {
 
   }, [])
 
-  // if (status == 'checking'){
-  //   return <CheckingAuth />
-  // }
+  if (status == 'checking'){
+    return <CheckingAuth />
+  }
 
   return (
     <Routes>
