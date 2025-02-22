@@ -1,0 +1,49 @@
+
+
+.ulFoods {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style-type: none;
+    margin-top: 20px;
+  }
+  
+  .liFoods {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .liFoods:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .foodImg {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .foodItem {
+    text-align: center;
+  }
+  
+  .foodDesc {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .foodPrice {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
